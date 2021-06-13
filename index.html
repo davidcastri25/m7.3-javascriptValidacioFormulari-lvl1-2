@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS - CDN -->
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+
+    <!-- Bootstrap CSS - Archivos instalados -->
+    <link rel="stylesheet" href="./styles/css/bootstrap.css">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="./styles/fontawesome/css/all.css">
+
+    <!-- Google fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet"> -->
+    <!-- font-family: 'Titillium Web', sans-serif; -->
+
+    <title>Home Page</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+    
+            <!-- Navegación extra superior -->
+            <div class="row collapse navbar-collapse d-lg-flex justify-content-around bg-dark py-2"
+                id="navbarSupportedContent">
+                <!-- Page navigation -->
+                <a href="#" class="col-3 link-warning text-decoration-none text-center">
+                    <i class="fas fa-book-open me-1"></i>
+                    <span>Blog</span>
+                </a>
+                <a href="#" class="col-4 link-warning text-decoration-none text-center">
+                    <i class="fas fa-users me-1"></i>
+                    <span>Sobre Nosotros</span>
+                </a>
+                <a href="#" class="col-3 link-warning text-decoration-none text-center">
+                    <i class="fas fa-phone-alt me-1"></i>
+                    <span>Contacto</span>
+                </a>
+            </div>
+        </div>
+    
+        <!-- Navegación -->
+        <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark d-block">
+    
+            <!-- Navegación superior -->
+            <div class="row flex-grow-1 d-flex justify-content-around">
+    
+                <!-- Botón hamburguesa -->
+                <div class="col-1 col-sm-2 col-md-1 align-self-center d-lg-none">
+                    <button class="navbar-toggler btn-sm" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                        <!-- <span class="navbar-toggler-icon"></span> -->
+                    </button>
+                </div>
+    
+                <!-- Logo -->
+                <a class="navbar-brand col-4 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center order-lg-0" href="index.html"><img class="img-fluid"
+                        src="./images/iron-guitars-logo-nobg.png" alt="Logo" width="200px"></a>
+    
+                <!-- Login y carrito -->
+                <div class="col-4 col-sm-3 col-md-5 col-lg-4 col-xl-3 align-self-center d-flex justify-content-around order-lg-2">
+                    
+                    <!-- Login -->
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="fas fa-sign-in-alt me-1"></i>
+                        <span class="d-none d-md-inline">Login</span>
+                    </button>
+                        <!-- Modal Login -->
+                        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Cabecera -->
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="loginModal">Identificarse con cuenta</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <!-- Cuerpo -->
+                                    <div class="modal-body">
+                                        <!-- Formulario de login -->
+                                        <form method="POST" action="ingresado.html" id="loginFormId" onsubmit="return loginValidate()" name="loginForm">
+                                            
+                                            <!-- Email -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="loginInputEmail" class="form-label">Dirección de correo electrónico</label>
+                                                <!-- Input -->
+                                                <input type="email" name="loginInputEmail" class="form-control" id="loginInputEmail" aria-describedby="emailHelp" placeholder="email@example.com">
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorLoginEmail"></div>                                              
+                                            </div>
+                                            
+                                            <!-- Contraseña -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="loginInputPassword" class="form-label">Contraseña</label>
+                                                <!-- Input -->
+                                                <input type="password" name="loginInputPassword" class="form-control" id="loginInputPassword" placeholder="Contraseña">
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorLoginPassword"></div>
+                                            </div>
+
+                                            <!-- Check de recuérdame -->
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="loginCheck1">
+                                                <label class="form-check-label" for="loginCheck1">Recuérdame</label>
+                                            </div>
+
+                                            <!-- Botón submit -->
+                                            <button type="submit" class="btn btn-warning">Ingresar</button>
+                                            
+                                            <!-- Enlace de contraseña olvidada -->
+                                            <div id="loginPasswordHelp" class="form-text">
+                                                <a href="#" class="link-danger">¿Has olvidado la contraseña?</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- Pie -->
+                                    <!--<div class="modal-footer">
+                                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Ingresar</button>                                        
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Registro -->
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#registroModal">
+                        <i class="fas fa-user-plus me-1"></i>
+                        <span class="d-none d-md-inline">Registro</span>
+                    </button>
+                        <!-- Modal Registro -->
+                        <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Cabecera -->
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="registroModal">Crear una cuenta</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <!-- Cuerpo -->
+                                    <div class="modal-body">
+                                        <!-- Formulario de registro -->
+                                        <form method="POST" action="registrado.html" id="registroFormId" onsubmit="return registroValidate()" name="registroForm">
+
+                                            <!-- Nombre -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="registroInputNombre" class="form-label">Nombre*</label>
+                                                <!-- Input -->
+                                                <input type="text" name="registroInputNombre" class="form-control" id="registroInputNombre" aria-describedby="nombreHelp"
+                                                    placeholder="Nombre">
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorRegistroNombre"></div>
+                                            </div>
+
+                                            <!-- Apellido 1 -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="registroInputApellido1" class="form-label">Primer apellido*</label>
+                                                <!-- Input -->
+                                                <input type="text" name="registroInputApellido1" class="form-control" id="registroInputApellido1" aria-describedby="apellido1Help"
+                                                    placeholder="Primer apellido">
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorRegistroApellido1"></div>
+                                            </div>
+
+                                            <!-- Apellido 2 -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="registroInputApellido2" class="form-label">Segundo apellido</label>
+                                                <!-- Input -->
+                                                <input type="text" name="registroInputApellido2" class="form-control" id="registroInputApellido2" aria-describedby="apellido2Help"
+                                                    placeholder="Segundo apellido">
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorRegistroApellido2"></div>
+                                            </div>
+
+                                            <!-- Mail -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="registroInputEmail" class="form-label">Dirección de correo electrónico*</label>
+                                                <!-- Input -->
+                                                <input type="email" name="registroInputEmail" class="form-control" id="registroInputEmail" aria-describedby="emailHelp"
+                                                    placeholder="email@hotmail.com">
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorRegistroEmail"></div>
+                                            </div>
+
+                                            <!-- Password -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="registroInputPassword" class="form-label">Contraseña*</label>
+                                                <!-- Input -->
+                                                <input type="password" name="registroInputPassword" class="form-control" id="registroInputPassword" placeholder="Contraseña"> 
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorRegistroPassword"></div>
+                                            </div>
+
+                                            <!-- Repetición Password -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="registroInputRePassword" class="form-label">Repite la contraseña*</label>
+                                                <!-- Input -->
+                                                <input type="password" name="registroInputRePassword" class="form-control" id="registroInputRePassword"
+                                                    placeholder="Repite la contraseña">
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorRegistroRePassword"></div>
+                                            </div>
+
+                                            <!-- Fecha de nacimiento -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="registroInputFecha" class="form-label">Fecha de nacimiento*</label>
+                                                <!-- Input -->
+                                                <input type="date" name="registroInputFecha" class="form-control" id="registroInputFecha">
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorRegistroFecha"></div>
+                                            </div>
+
+                                            <!-- Provincia -->
+                                            <div class="form-group mb-3">
+                                                <!-- Etiqueta -->
+                                                <label for="registroInputProvincia">Provincia de residencia*</label>
+                                                <!-- Select -->
+                                                <select id="registroInputProvincia" name="registroInputProvincia" class="form-control">
+                                                    <option selected value=""></option>
+                                                    <option>Barcelona</option>
+                                                    <option>Girona</option>
+                                                    <option>Tarragona</option>
+                                                    <option>Lleida</option>
+                                                </select>
+                                                <!-- Div invalid feedback -->
+                                                <div class="invalid-feedback" id="errorRegistroProvincia"></div>
+                                            </div>
+
+                                            <!-- Check privacidad -->
+                                            <div class="mb-3 form-check">
+                                                <!-- Input -->
+                                                <input type="checkbox" class="form-check-input" id="privacidadCheck">
+                                                <!-- Etiqueta -->
+                                                <label class="form-check-label" for="privacidadCheck">He leído y acepto la <a href="#" class="link-danger">Política de Privacidad</a>.*</label>
+                                                <!-- Div invalid-feedback -->
+                                                <div class="invalid-feedback" id="errorPrivacidadCheck"></div>
+                                            </div>
+
+                                            <div id="privacidadHelp" class="form-text text-danger mb-1">*Campo requerido</div>
+
+                                            <!-- Botón submit -->
+                                            <button type="submit" class="btn btn-warning">Registro</button>
+                                                                                        
+                                        </form>
+                                    </div>
+                                    <!-- Pie -->
+                                    <!--<div class="modal-footer">
+                                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Ingresar</button>                                        
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <!-- Carrito -->
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#carritoModal">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        <span class="d-none d-md-inline">Carrito</span>
+                    </button>                                        
+                </div>
+    
+                <!-- Buscador -->
+                <form method="POST" action="buscado.html" id="searchFormId" onsubmit="return searchValidate()" name="searchForm" class="col-11 col-lg-5 col-xl-6 py-lg-4 d-flex order-lg-1 mt-3 mb-2 mt-lg-0 mb-lg-0">
+                    <input class="form-control me-2" type="search" placeholder="Producto, marca..." aria-label="Search">
+                    <button class="btn btn-outline-warning" type="submit">Buscar</button>
+                    <!-- Div invalid-feedback -->
+                    <div class="invalid-feedback" id="errorSearch"></div>
+                </form>
+    
+            </div>
+    
+            <!-- Navegación inferior -->
+            <div class="row flex-grow-1">
+    
+                <!-- Product navigation -->
+                <div class="collapse navbar-collapse p-4 d-lg-flex" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-lg-grow-1 justify-content-lg-around">
+                        <!-- Guitarras -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Guitarras
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Modelos ST</a></li>
+                                <li><a class="dropdown-item" href="#">Modelos T</a></li>
+                                <li><a class="dropdown-item" href="#">Modelos LT</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                            </ul>
+                        </li>
+                        <!-- Bajos -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Bajos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Modelos J</a></li>
+                                <li><a class="dropdown-item" href="#">Modelos P</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                            </ul>
+                        </li>
+                        <!-- Amplificación -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Amplificación
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Amplificadores para guitarra</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Cabezales para guitarra</a></li>
+                                <li><a class="dropdown-item" href="#">Combos para guitarra</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                                <li><a class="dropdown-item" href="#">Amplificadores para bajo</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Cabezales para bajo</a></li>
+                                <li><a class="dropdown-item" href="#">Combos para bajo</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                            </ul>
+                        </li>
+                        <!-- Efectos -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Efectos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Pedales para guitarra</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Distorsión</a></li>
+                                <li><a class="dropdown-item" href="#">Delay</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                                <li><a class="dropdown-item" href="#">Pedales para bajo</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Compresores</a></li>
+                                <li><a class="dropdown-item" href="#">Distorsión</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                            </ul>
+                        </li>
+                        <!-- Accesorios -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Accesorios
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Cables</a></li>
+                                <li><a class="dropdown-item" href="#">Púas</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>    
+        </nav>    
+    </header>
+    
+    <!-- Sliders -->
+    <section style="max-height: 400px;">
+        <div id="carouselExampleCaptions" class="carousel slide" style="max-height: 400px;" data-bs-ride="carousel">
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+
+            <!-- Imágenes -->
+            <div class="carousel-inner" style="max-height: 400px;">
+                <div class="carousel-item active" style="max-height: 400px;">
+                    <img src="./images/foto1v1.jpg" class="d-block w-100" alt="Foto 1">
+                    <div class="carousel-caption d-none d-md-block bg-dark rounded">
+                        <h5>Primer título</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quam? Quasi amet quibusdam neque dolores!</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="max-height: 400px;">
+                    <img src="./images/foto2v2.jpg" class="d-block w-100" alt="Foto 2">
+                    <div class="carousel-caption d-none d-md-block bg-dark rounded">
+                        <h5>Segundo título</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quam? Quasi amet quibusdam neque dolores!</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="max-height: 400px;">
+                    <img src="./images/foto3.jpg" class="d-block w-100" alt="Foto 3">
+                    <div class="carousel-caption d-none d-md-block bg-dark rounded">
+                        <h5>Tercer título</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quam? Quasi amet quibusdam neque dolores!</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="max-height: 400px;">
+                    <img src="./images/foto4v3.jpg" class="d-block w-100" alt="Foto 4">
+                    <div class="carousel-caption d-none d-md-block bg-dark rounded">
+                        <h5>Cuarto título</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quam? Quasi amet quibusdam neque dolores!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Controles -->
+            <div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>            
+        </div>
+    </section>   
+
+    <!-- Categorías destacadas -->
+    <section>
+        <div class="container-fluid p-5">
+            <!-- Nombre de sección -->
+            <div>
+                <h3 class="border-bottom border-3 text-dark border-warning">Categorías destacadas</h3>
+            </div>
+
+            <!-- Enlaces -->
+            <div class="row d-flex justify-content-between align-items-center">
+                <!-- Categoría 1 -->
+                <div class="card col-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning">
+                        <img src="./images/categorias/Modelo ST.jpg" class="card-img-top img-fluid" alt="Foto">
+                        <div class="card-body d-none d-md-block">
+                            <p class="card-text text-center">Modelos ST</p>
+                        </div>
+                    </a>                    
+                </div>
+                <!-- Categoría 2 -->
+                <div class="card col-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning">
+                        <img src="./images/categorias/Modelo LT.jpg" class="card-img-top img-fluid" alt="Foto">
+                        <div class="card-body d-none d-md-block">
+                            <p class="card-text text-center">Modelos LT</p>
+                        </div>
+                    </a>                    
+                </div>
+                <!-- Categoría 3 -->
+                <div class="card col-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning">
+                        <img src="./images/categorias/Modelo T.jpg" class="card-img-top img-fluid" alt="Foto">
+                        <div class="card-body d-none d-md-block">
+                            <p class="card-text text-center">Modelos T</p>
+                        </div>
+                    </a>                    
+                </div>
+                <!-- Categoría 4 -->
+                <div class="card col-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning">
+                        <img src="./images/categorias/Bajo 5 cuerdas.jpg" class="card-img-top img-fluid" alt="Foto">
+                        <div class="card-body d-none d-md-block">
+                            <p class="card-text text-center">Bajos 5 cuerdas</p>
+                        </div>
+                    </a>                    
+                </div>
+                <!-- Categoría 5 -->
+                <div class="card col-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning">
+                        <img src="./images/categorias/Pedales guitarra.jpg" class="card-img-top img-fluid" alt="Foto">
+                        <div class="card-body d-none d-md-block">
+                            <p class="card-text text-center">Pedales guitarra</p>
+                        </div>
+                    </a>                    
+                </div>
+                <!-- Categoría 6 -->
+                <div class="card col-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning">
+                        <img src="./images/categorias/Combos guitarra.jpg" class="card-img-top img-fluid" alt="Foto">
+                        <div class="card-body d-none d-md-block">
+                            <p class="card-text text-center">Combo guitarra</p>
+                        </div>
+                    </a>                    
+                </div>                
+            </div>
+        </div>
+    </section>    
+
+    <!-- Productos destacados -->
+    <section>
+        <div class="container-fluid p-5 pt-0">
+            <!-- Nombre de sección -->
+            <div class="row">
+                <h3 class="border-bottom border-3 text-dark border-warning">Productos destacados</h3>
+            </div>
+
+            <!-- Enlaces -->
+            <div class="row d-flex justify-content-between align-items-center">                                            
+                <!-- Producto 1 -->
+                <div class="card col-12 col-sm-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning d-flex align-items-center d-sm-block">
+                        <div> <!-- Si no pongo la img dentro de un div, aunque en firefox me lo muestra bien, en chrome no. -->
+                            <img src="./images/destacados/destacado-1.jpg" class="card-img-top img-fluid" alt="Foto">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h6 class="card-title text-center text-uppercase text-dark">Charvel - PM SD1 HH FR EBN OLD YELLA</h6>
+                            <p class="card-text text-center text-warning"><s class="text-dark">899€</s> 809€</p>
+                            <p class="card-text text-center text-success">En stock. Envío inmediato.</p>
+                        </div>
+                    </a>                    
+                </div>
+                <!-- Producto 2 -->
+                <div class="card col-12 col-sm-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning d-flex align-items-center d-sm-block">
+                        <div>
+                            <img src="./images/destacados/destacado-2.jpg" class="card-img-top img-fluid" alt="Foto">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h6 class="card-title text-center text-uppercase text-dark">ESP - E-II ARROW SNOW WHITE</h6>
+                            <p class="card-text text-center text-warning"><s class="text-dark">899€</s> 809€</p>
+                            <p class="card-text text-center text-success">En stock. Envío inmediato.</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Producto 3 -->
+                <div class="card col-12 col-sm-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning d-flex align-items-center d-sm-block">
+                        <div>
+                            <img src="./images/destacados/destacado-3.jpg" class="card-img-top img-fluid" alt="Foto">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h6 class="card-title text-center text-uppercase text-dark">Ibanez - RGRT421-WNF</h6>
+                            <p class="card-text text-center text-warning"><s class="text-dark">899€</s> 809€</p>
+                            <p class="card-text text-center text-success">En stock. Envío inmediato.</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Producto 4 -->
+                <div class="card col-12 col-sm-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning d-flex align-items-center d-sm-block">
+                        <div>
+                            <img src="./images/destacados/destacado-4.jpg" class="card-img-top img-fluid" alt="Foto">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h6 class="card-title text-center text-uppercase text-dark">PRS - SE CUSTOM 24 FADED BLUE BURST</h6>
+                            <p class="card-text text-center text-warning"><s class="text-dark">899€</s> 809€</p>
+                            <p class="card-text text-center text-success">En stock. Envío inmediato.</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Producto 5 -->
+                <div class="card col-12 col-sm-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning d-flex align-items-center d-sm-block">
+                        <div>
+                            <img src="./images/destacados/destacado-5.jpg" class="card-img-top img-fluid" alt="Foto">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h6 class="card-title text-center text-uppercase text-dark">Schecter - E-1 FR S SPECIAL EDITION TRANS PURPLE BURST</h6>
+                            <p class="card-text text-center text-warning"><s class="text-dark">899€</s> 809€</p>
+                            <p class="card-text text-center text-success">En stock. Envío inmediato.</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Producto 6 -->
+                <div class="card col-12 col-sm-5 col-md-3 my-3 m-md-3 border border-1 border-dark">
+                    <a href="#" class="text-decoration-none link-warning d-flex align-items-center d-sm-block">
+                        <div>
+                            <img src="./images/destacados/destacado-6.jpg" class="card-img-top img-fluid" alt="Foto">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h6 class="card-title text-center text-uppercase text-dark">Ibanez - GSRM20B-WNF</h6>
+                            <p class="card-text text-center text-warning"><s class="text-dark">899€</s> 809€</p>
+                            <p class="card-text text-center text-success">En stock. Envío inmediato.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marcas populares -->
+    <section>
+        <div class="container-fluid p-5 pt-0">
+            <!-- Nombre de sección -->
+            <div>
+                <h3 class="border-bottom border-3 text-dark border-warning">Marcas populares</h3>
+            </div>
+
+            <!-- Enlaces -->
+            <div class="row d-flex justify-content-between align-items-center mt-3">
+                <!-- Marca 1 -->                
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-1.jpg" class="img-fluid" alt="Foto">
+                    </a>                        
+                </div>
+                <!-- Marca 2 -->
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-2.jpg" class="img-fluid" alt="Foto">
+                    </a>
+                </div>
+                <!-- Marca 3 -->
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-3.jpg" class="img-fluid" alt="Foto">
+                    </a>
+                </div>
+                <!-- Marca 4 -->
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-4.jpg" class="img-fluid" alt="Foto">
+                    </a>
+                </div>
+                <!-- Marca 5 -->
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-5.jpg" class="img-fluid" alt="Foto">
+                    </a>
+                </div>
+                <!-- Marca 6 -->
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-6.jpg" class="img-fluid" alt="Foto">
+                    </a>
+                </div>
+                <!-- Marca 7 -->
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-7.jpg" class="img-fluid" alt="Foto">
+                    </a>
+                </div>
+                <!-- Marca 8 -->
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-8.jpg" class="img-fluid" alt="Foto">
+                    </a>
+                </div>
+                <!-- Marca 9 -->
+                <div class="col-4 col-lg-1 border border-1 border-dark rounded d-flex justify-content-center align-items-center">
+                    <a href="#">
+                        <img src="./images/marcas/marca-9.jpg" class="img-fluid" alt="Foto">
+                    </a>
+                </div>
+            </div>
+        </div>        
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container-fluid">
+            <!-- Barra de redes sociales -->
+            <div class="row bg-dark d-flex justify-content-center">
+                <!-- Facebook -->
+                <a class="col-3 btn btn-link btn-floating btn-lg text-warning m-1 d-flex justify-content-center align-items-center text-decoration-none link-warning" href="#" role="button" data-mdb-ripple-color="dark">
+                    <i class="fab fa-facebook-f">
+                        <span class="d-none d-lg-inline-block">Facebook</span>
+                    </i>                    
+                </a>
+                <!-- Twitter -->
+                <a class="col-3 btn btn-link btn-floating btn-lg text-warning m-1 d-flex justify-content-center align-items-center text-decoration-none link-warning" href="#"
+                    role="button" data-mdb-ripple-color="dark">
+                    <i class="fab fa-twitter">
+                        <span class="d-none d-lg-inline-block">Twitter</span>
+                    </i>               
+                </a>
+                <!-- Instagram -->
+                <a class="col-3 btn btn-link btn-floating btn-lg text-warning m-1 d-flex justify-content-center align-items-center text-decoration-none link-warning" href="#"
+                    role="button" data-mdb-ripple-color="dark">
+                    <i class="fab fa-instagram">
+                        <span class="d-none d-lg-inline-block">Instagram</span>
+                    </i>
+                </a>
+            </div>
+
+            <!-- Contenido footer -->
+            <div class="row bg-dark d-flex justify-content-around align-items-start pt-3">
+                <!-- Mapa de la web -->
+                <div class="col-12 col-lg-3 text-warning">
+                    <h5>
+                        Mapa de la web
+                    </h5>
+                    <hr>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Página principal</a>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Blog</a>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Sobre nosotros</a>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Contacto</a>                    
+                </div>
+
+                <!-- Categorías -->
+                <div class="col-12 col-lg-3 text-warning mt-3 mt-lg-0">
+                    <h5>
+                        Categorías generales
+                    </h5>
+                    <hr>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Guitarras</a>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Bajos</a>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Amplificación</a>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Efectos</a>
+                    <a href="index.html" class="text-decoration-none link-warning d-block pb-2">Accesorios</a>
+                </div>
+
+                <!-- Contacto -->
+                <div class="col-12 col-lg-3 text-warning mt-3 mt-lg-0">
+                    <h5>
+                        Contacto
+                    </h5>
+                    <hr>
+                    <p><i class="fas fa-home me-3"></i> C/ XXXXX, 10, 080XX, Barcelona</p>
+                    <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        info@example.com
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i> + 34 93 000 00 00</p>
+                    <p><i class="fas fa-print me-3"></i> + 34 93 000 00 00</p>
+                </div>
+            </div>
+
+            <!-- Última fila footer -->
+            <div class="row bg-dark d-flex justify-content-around align-items-start pt-3 text-warning">
+                <p class="text-center">&copy;: Iron Guitars, S.L. España</p>                
+            </div>
+        </div>
+    </footer>
+    
+        
+
+
+
+
+
+
+    <!-- Bootstrap - CDN -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>-->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+
+    <!-- Bootstrap - Archivos instalados -->
+    <script src="./scripts/bootstrap-js/bootstrap.min.js"></script>
+    <script src="./scripts/bootstrap-js/popper.min.js"></script>
+
+    <!-- JavaScript code -->
+    <script src="./scripts/js/validations.js"></script>
+
+</body>
+
+</html>
