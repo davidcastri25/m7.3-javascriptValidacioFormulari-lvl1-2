@@ -9,6 +9,8 @@ const formSearch = document.getElementById("searchFormId"); //Formulario de bús
 function validarEmail (email) {
 	//Declaramos nuestra expresión regular
 	let regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    //Otra posible regex (acepta si no pones .com por ejemplo): /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]{2,4})*$/
+
 	//Comprobamos si el parámetro cumple con la expresión regular. El método .test() retorna true si existe una coincidencia entre la expresión regular y la cadena especificada; de lo contrario retorna false.
 	return regex.test(email) ? true : false;
 	//El símbolo ? es el ternary operator. Funciona así: condition ? value if true : value if false
@@ -362,3 +364,8 @@ formSearch.addEventListener('blur', (event) => {
         event.target.classList.remove('is-valid');
 	} 	
 }, true);
+
+/* Esto serviría para sacar el evento por defecto del botón submit por ejemplo
+document.getElementById("loginButtonSubmit").addEventListener("click", function(event){
+  event.preventDefault();
+});  */
