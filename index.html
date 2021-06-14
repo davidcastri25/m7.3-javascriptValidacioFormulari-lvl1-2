@@ -93,8 +93,8 @@
                                             <div class="form-group mb-3">
                                                 <!-- Etiqueta -->
                                                 <label for="loginInputEmail" class="form-label">Dirección de correo electrónico</label>
-                                                <!-- Input -->
-                                                <input type="email" name="loginInputEmail" class="form-control" id="loginInputEmail" aria-describedby="emailHelp" placeholder="email@example.com">
+                                                <!-- Input (si le pongo type="email, bootstrap me lo valida automáticamente y no deja iniciar el evento onsubmit") -->
+                                                <input type="text" name="loginInputEmail" class="form-control" id="loginInputEmail" aria-describedby="emailHelp" placeholder="email@example.com">
                                                 <!-- Div invalid feedback -->
                                                 <div class="invalid-feedback" id="errorLoginEmail"></div>                                              
                                             </div>
@@ -189,7 +189,7 @@
                                                 <!-- Etiqueta -->
                                                 <label for="registroInputEmail" class="form-label">Dirección de correo electrónico*</label>
                                                 <!-- Input -->
-                                                <input type="email" name="registroInputEmail" class="form-control" id="registroInputEmail" aria-describedby="emailHelp"
+                                                <input type="text" name="registroInputEmail" class="form-control" id="registroInputEmail" aria-describedby="emailHelp"
                                                     placeholder="email@hotmail.com">
                                                 <!-- Div invalid feedback -->
                                                 <div class="invalid-feedback" id="errorRegistroEmail"></div>
@@ -245,7 +245,7 @@
                                             <!-- Check privacidad -->
                                             <div class="mb-3 form-check">
                                                 <!-- Input -->
-                                                <input type="checkbox" class="form-check-input" id="privacidadCheck">
+                                                <input type="checkbox" name="privacidadCheck" class="form-check-input" id="privacidadCheck">
                                                 <!-- Etiqueta -->
                                                 <label class="form-check-label" for="privacidadCheck">He leído y acepto la <a href="#" class="link-danger">Política de Privacidad</a>.*</label>
                                                 <!-- Div invalid-feedback -->
@@ -275,11 +275,15 @@
                 </div>
     
                 <!-- Buscador -->
-                <form method="POST" action="buscado.html" id="searchFormId" onsubmit="return searchValidate()" name="searchForm" class="col-11 col-lg-5 col-xl-6 py-lg-4 d-flex order-lg-1 mt-3 mb-2 mt-lg-0 mb-lg-0">
-                    <input class="form-control me-2" type="search" placeholder="Producto, marca..." aria-label="Search">
-                    <button class="btn btn-outline-warning" type="submit">Buscar</button>
-                    <!-- Div invalid-feedback -->
-                    <div class="invalid-feedback" id="errorSearch"></div>
+                <form method="POST" action="buscado.html" id="searchFormId" onsubmit="return searchValidate()" name="searchForm" class="col-11 col-lg-5 col-xl-6 py-lg-4 d-flex flex-wrap order-lg-1 mt-3 mb-2 mt-lg-0 mb-lg-0">
+                    <div class="form-group flex-grow-1 d-flex flex-wrap">
+                        <input class="form-control me-2 w-50 flex-grow-1" type="search" name="inputSearch" placeholder="Producto, marca..." aria-label="Search">
+                        <button class="btn btn-outline-warning w-25" type="submit">Buscar</button>
+                        <!-- Div invalid-feedback -->
+                        <div class="invalid-feedback" id="errorSearch"></div>
+                    </div>
+                    
+                    
                 </form>
     
             </div>
